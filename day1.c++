@@ -188,3 +188,34 @@ m[2]=20;
 for(auto &p:m)
   cout<<p.first<<" ";
 //一定是输出的1 2 3
+
+// 只关心“有没有” “出现几次”  用underered_map
+// 需要按key排序             用map
+// 需求非常快(面试常见)       用unordered_map
+// 区间/前驱/后继             用map/set
+
+//unordered_map的三中访问方式
+//自动创建
+unordered_map <int,int> cnt;
+cnt[5]++;
+//count判断存在
+if(cnt.count(5)){}
+//find- 更底层
+auto it=cnt.find(5);
+if(it!=cnt.end()){
+cout<<it->second;
+}
+
+unordered_map<int,int> cnt;
+for(int x: a)
+  cnt[x]++;
+
+//新手最容易犯的错误❌
+if(cnt[x]) { }
+
+//正确
+if(cnt.count(x)) { }
+if(it!=cnt.end()) //说明找到了
+// 第一空:说明还没找到这本书摆放的位置,意味着这个书架里没有这本书
+// 第二空:说明,已经找到了摆放的位置,意味着有这本书
+
