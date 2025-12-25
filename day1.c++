@@ -219,3 +219,31 @@ if(it!=cnt.end()) //说明找到了
 // 第一空:说明还没找到这本书摆放的位置,意味着这个书架里没有这本书
 // 第二空:说明,已经找到了摆放的位置,意味着有这本书
 
+set<int>s;
+s.insert(3);
+s.insert(1);
+s.insert(3);
+
+s.insert(x);
+s.erase(x);
+s.count(x); //是否存在（0或者1）
+auto it =s.find(x); //找位置（找不到也是end）
+for(int x:s) cout<<x<<" ";
+
+multiset<int>ms;
+ms.insert(3);
+ms.insert(3);
+ms.insert(1);
+
+unordered_map<int,int> // 计数（key--次数）
+multiset<int> // 每次插入一个元素，保留重复（有序）
+
+
+//删除一个“最大值”
+
+auto it=prev(ms.end());
+ms.erase(it);
+//删除一个指定值（只删一个）
+auto it=ms.find(x);
+if(it!=ms.end()) ms.erase(it);
+
