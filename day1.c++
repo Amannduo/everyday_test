@@ -241,9 +241,10 @@ multiset<int> // 每次插入一个元素，保留重复（有序）
 
 //删除一个“最大值”
 
-auto it=prev(ms.end());
+auto it=prev(ms.end());//   end()就是最大的后面
 ms.erase(it);
 //删除一个指定值（只删一个）
 auto it=ms.find(x);
 if(it!=ms.end()) ms.erase(it);
 
+ms.erase(x) //这个会直接删除所有等于x的元素
