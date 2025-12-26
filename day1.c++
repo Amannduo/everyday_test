@@ -248,3 +248,36 @@ auto it=ms.find(x);
 if(it!=ms.end()) ms.erase(it);
 
 ms.erase(x) //这个会直接删除所有等于x的元素
+
+
+priority_queue<int> pq;
+pq.push(3);
+pq.push(10);
+cout<<pq.top(); //  10
+pq.pop();       //  删除最大值（10）
+// 跟multiset的核心区别 
+// priority_queue: 只能拿/删“堆顶”（最大或最小），不支持删除任何值
+// multiset：能查找、能删除任意元素、能找到最大最小、但操作是log n
+
+priority_queue<int> pq;
+pq.push(3);
+pq.push(10);
+pq.push(5);
+
+cout<<pq.top(); //  10
+pq.pop();       // 删除10 （栈顶）
+
+// 常用操作
+push(x) // 插入
+top()   // 看堆顶（最大）
+pop()   // 删堆顶
+empty() // 是否空
+size()  //元素个数
+
+
+// 进阶但是常用：小根堆（最小在顶）
+priority_queue<int,vector<int>,greater<int>>pq;
+
+// test one 
+priority_queue<int>pq;
+pq.push(7);
