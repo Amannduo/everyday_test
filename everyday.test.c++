@@ -47,3 +47,51 @@ public:
         return false;
     }
 };
+// 242. 有效的字母异位词
+// 给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的 字母异位词。
+// 示例 1:
+// 输入: s = "anagram", t = "nagaram"
+// 输出: true
+// 示例 2:
+// 输入: s = "rat", t = "car"
+// 输出: false
+// 提示:
+// 1 <= s.length, t.length <= 5 * 104
+// s 和 t 仅包含小写字母
+// 进阶: 如果输入字符串包含 unicode 字符怎么办？你能否调整你的解法来应对这种情况？
+// 解答1： 通过排序进行逐个字符比较。
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        sort(s.begin(),s.end(),[](auto &a ,auto &b)
+        {
+            return a>b;
+        });
+        sort(t.begin(),t.end(),[](auto &a ,auto &b)
+        {
+            return a>b;
+        });
+        for(int i=0;i<s.size();i++)
+        {
+            if(s[i]!=t[i])
+            return false;
+        }
+        return true;
+    }
+};
+//解答2；利用unordered计数，其实也可以直接用vector<int>进行计数,这里的索引也就是s[i]-'a'
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        if(s.size()!=t.size()) return false;
+        unordered_map<char,int> res1;
+        res1.reserve(s.size());
+        for(int i=0;i<s.size();i++)
+        {
+            res1[s[i]]++;
+        }
+        for(auto c:t)
+        if(--res1[c]<0) return false;
+        return true;
+    }
+};
